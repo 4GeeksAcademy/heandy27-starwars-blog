@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
   const { store, actions } = useContext(Context)
   return (
-    <div className="bg-light">
+    <div className="bg-light" style={{ position: "sticky", top: "0", zIndex: "99" }}>
       <nav className="navbar ">
         <div className="container">
           <a className="navbar-brand" href="#">
@@ -26,11 +26,11 @@ export const Navbar = () => {
                 {store.favorites.map((value, index) => {
                   return <>
                     <div className="col-6"><p>{value}</p></div>
-                    <div className="col-6"> <button 
-                    className={`btn btn-primary ${store.favorites.length == 0 ? "opacity-0" : "opacity-100"}`} 
-                    onClick={() => {
-                      actions.removeFavorite(index);
-                    }}><i class="fa-solid fa-trash-can"></i></button></div>
+                    <div className="col-6"> <button
+                      className={`btn btn-primary ${store.favorites.length == 0 ? "opacity-0" : "opacity-100"}`}
+                      onClick={() => {
+                        actions.removeFavorite(index);
+                      }}><i class="fa-solid fa-trash-can"></i></button></div>
                   </>
                 })}
 
